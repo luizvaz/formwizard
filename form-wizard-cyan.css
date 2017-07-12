@@ -406,6 +406,10 @@
 .form-control:-ms-input-placeholder { color: #888; }
 .form-control::-webkit-input-placeholder { color: #888; }
 
+.form-group:-moz-placeholder { color: #888; }
+.form-group:-ms-input-placeholder { color: #888; }
+.form-group::-webkit-input-placeholder { color: #888; }
+
 .form-wizard label { font-weight: 300; }
 .form-wizard label span { color:#00838f; }
 
