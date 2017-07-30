@@ -42,7 +42,8 @@
 			
 			// fields validation
 			parent_fieldset.find('.required').each(function() {
-				if( $(this).val() == "" ) {
+				debugger;
+				if( $(this).validate && !$(this).validate() ) {
 					$(this).addClass('input-error');
 					next_step = false;
 				}
