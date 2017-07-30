@@ -41,16 +41,17 @@
 			var progress_line = $(this).parents('.form-wizard').find('.form-wizard-progress-line');
 			
 			// fields validation
-			parent_fieldset.find('.required').each(function() {
-				debugger;
-				if( $(this).validate && !$(this).validate() ) {
-					$(this).addClass('input-error');
+			var req = parent_fieldset.find('[required]');
+			for (var i = 0, l = req.length; i < l; i++) {
+				var f = req[i];
+				if( $(f).validate && !$(f).validate() ) {
+					$(f).addClass('input-error');
 					next_step = false;
 				}
 				else {
-					$(this).removeClass('input-error');
+					$(f).removeClass('input-error');
 				}
-			});
+			};
 			// fields validation
 			
 			if( next_step ) {
