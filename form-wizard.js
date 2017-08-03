@@ -103,7 +103,7 @@
 				else {
 					$(f).removeClass('input-error');
 				}
-			});
+			}
 			// fields validation
 			
 		});
