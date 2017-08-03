@@ -44,7 +44,7 @@
 			var req = parent_fieldset.find('[required]');
 			for (var i = 0, l = req.length; i < l; i++) {
 				var f = req[i];
-				if( f.validate && !f.validate(f) ) {
+				if( $(f).is(":visible") && f.validate && !f.validate(f) ) {
 					$(f).addClass('input-error');
 					next_step = false;
 				}
@@ -91,13 +91,17 @@
 		$('.form-wizard').on('submit', function(e) {
 			
 			// fields validation
-			$(this).find('.required').each(function() {
-				if( $(this).val() == "" ) {
+			var req = $(this).find('[required]');
+			for (var i = 0, l = req.length; i < l; i++) {
+				var f = req[i];
+				if( $(f).is(":visible") && f.validate && !f.validate(f) ) {
 					e.preventDefault();
-					$(this).addClass('input-error');
+					$(f).addClass('input-error');
+					$(f).focus();
+					break;
 				}
 				else {
-					$(this).removeClass('input-error');
+					$(f).removeClass('input-error');
 				}
 			});
 			// fields validation
