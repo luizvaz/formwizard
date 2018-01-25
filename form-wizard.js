@@ -94,7 +94,7 @@
 			var req = $(this).find('[required]');
 			for (var i = 0, l = req.length; i < l; i++) {
 				var f = req[i];
-				if( $(f).is(":visible") && f.validate && !f.validate(f) ) {
+				if( $(f) && $(f).is(":visible") && $(f).data("validate") && !$(f).data("validate")(f) ) {
 					e.preventDefault();
 					$(f).addClass('input-error');
 					$(f).focus();
