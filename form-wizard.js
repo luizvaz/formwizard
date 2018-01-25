@@ -181,3 +181,17 @@
 	// image uploader scripts
 
 }( jQuery ));
+
+$.fn.preBind = function (type, data, fn) {
+    this.each(function () {
+        var $this = $(this);
+
+        $this.bind(type, data, fn);
+
+        var currentBindings = $this.data('events')[type];
+        if ($.isArray(currentBindings)) {
+            currentBindings.unshift(currentBindings.pop());
+        }
+    });
+    return this;
+};
