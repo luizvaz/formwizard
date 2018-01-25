@@ -188,7 +188,7 @@ $.fn.preBind = function (type, data, fn) {
 
         $this.bind(type, data, fn);
 
-        var currentBindings = $this.data('events')[type];
+        var currentBindings = $._data(this, 'events')[type];
         if ($.isArray(currentBindings)) {
             currentBindings.unshift(currentBindings.pop());
         }
