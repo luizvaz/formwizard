@@ -44,7 +44,7 @@
 			var req = parent_fieldset.find('[required]');
 			for (var i = 0, l = req.length; i < l; i++) {
 				var f = req[i]; 
-				if( $(f).is(":visible") && !$(f).data("validade")(f) ) {
+				if( $(f) && $(f).is(":visible") && $(f).data("validate") && !$(f).data("validate")(f) ) {
 					$(f).addClass('input-error');
 					next_step = false;
 				}
